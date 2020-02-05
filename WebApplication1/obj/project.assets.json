@@ -8640,11 +8640,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Manucho\\Desktop\\VotesRestApi\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\Manucho\\Desktop\\VotesRestApi\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\Manucho\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Manucho\\Desktop\\VotesRestApi\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Manucho\\AppData\\Roaming\\NuGet\\NuGet.Config",
