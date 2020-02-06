@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using VotesRestApi.Core.Enums;
 using VotesRestApi.Core.Models;
 using VotesRestApi.Service.Context;
 
@@ -44,6 +45,79 @@ namespace WebApplication1.Controllers
             }
 
             return vote;
+        }
+
+        // GET: api/votes/adminId/{adminId}/report/period/{yyyy-MM}
+        [HttpGet("adminId/{adminId}/report/period/{period}")]
+        public async Task<ActionResult<Report>> GetReport(Guid adminId, DateTime period)
+        {
+            var admin = await _userContext.UserDbSet.FindAsync(adminId);
+
+            if (admin == null)
+            {
+                return NotFound();
+            }
+
+            if(!admin.IsAdmin)
+            {
+                throw new ApplicationException("You don't have admin permissions.");
+            }
+
+            var users = await _userContext.UserDbSet.ToListAsync();
+            var votes = await _context.VoteDbSet.ToListAsync();
+
+            if(!votes.Any())
+            {
+                await MockVotes();
+
+                votes = await _context.VoteDbSet.ToListAsync();
+            }
+
+            votes = votes.Where(x => x.Date.Year == period.Year
+                                        && x.Date.Month == period.Month)
+                        .ToList();
+
+            var mostVotedEmployee = votes.GroupBy(x => x.VotedUserId)
+                                            .Select(mv => new {
+                                                Count = mv.Count(),
+                                                Name = mv.First().VotedUserName,
+                                                Period = mv.First().Date.Date,
+                                                ID = mv.Key
+                                            })
+                                            .OrderByDescending(x => x.Count)
+                                            .FirstOrDefault();
+
+            Report report = new Report();
+            report.MostVotedEmployee = new Tuple<string, int>(mostVotedEmployee.Name, mostVotedEmployee.Count);
+            report.Period = mostVotedEmployee.Period;
+            report.RegisteredEmployeeCount = users.Count(x => !x.IsAdmin);
+
+            var votedEmployeePerNomination = votes.GroupBy(x => new { x.VotedUserId, x.Nomination })
+                                                    .Select(mv => new
+                                                    {
+                                                        Count = mv.Count(),
+                                                        Name = mv.First().VotedUserName,
+                                                        Nomination = mv.First().Nomination,
+                                                        NominationDesc = mv.First().NominationDescription
+                                                    })
+                                                    .OrderByDescending(x => x.Count)
+                                                    .ToList();
+
+            report.MostVotedEmployeeForNomination = new Dictionary<string, string>();
+
+            foreach (var item in Enum.GetValues(typeof(Nomination)))
+            {
+                Nomination nomination = (Nomination)item;
+
+                var mostVoted = votedEmployeePerNomination.FirstOrDefault(x => x.Nomination == nomination);
+
+                if(mostVoted != null)
+                {
+                    report.MostVotedEmployeeForNomination.Add(mostVoted.Name, mostVoted.NominationDesc);
+                }
+            }
+
+            return new ActionResult<Report>(report);
         }
 
         // PUT: api/votes/{id}
@@ -192,6 +266,17 @@ namespace WebApplication1.Controllers
                 });
                 #endregion
 
+                _context.VoteDbSet.Add(new Vote()
+                {
+                    Id = Guid.NewGuid(),
+                    Date = DateTime.Now,
+                    Nomination = VotesRestApi.Core.Enums.Nomination.Funny,
+                    VotingUserId = ginobili.Id,
+                    VotingUserName = ginobili.Name,
+                    VotedUserId = nocioni.Id,
+                    VotedUserName = nocioni.Name
+                });
+
                 await _context.SaveChangesAsync();
             }
         }
@@ -202,26 +287,26 @@ namespace WebApplication1.Controllers
 
             if(!users.Any())
             {
-                throw new Exception("No Employee found.");
+                throw new ApplicationException("No Employee found.");
             }
 
             var votingUser = users.SingleOrDefault(x => x.Id == vote.VotingUserId);
 
             if (votingUser == null)
             {
-                throw new Exception("Voting Employee not found.");
+                throw new ApplicationException("Voting Employee not found.");
             }
 
             var votedUser = users.SingleOrDefault(x => x.Id == vote.VotedUserId);
             
             if (votedUser == null)
             {
-                throw new Exception("Voted Employee not found.");
+                throw new ApplicationException("Voted Employee not found.");
             }
 
             if (votingUser.Id == votedUser.Id)
             {
-                throw new Exception("Voting and Voted Employee can't be the same person.");
+                throw new ApplicationException("Voting and Voted Employee can't be the same person.");
             }
 
             var votes = await _context.VoteDbSet.ToListAsync();
@@ -238,7 +323,7 @@ namespace WebApplication1.Controllers
 
                 if(existSameVote)
                 {
-                    throw new Exception(string.Format("Exist the same vote for: Employee: {0}, Year: {1}, Month: {2}, Nomination:{3}", votingUser.Name, vote.Date.ToString("yyyy"), vote.Date.ToString("MM"), vote.NominationDescription));
+                    throw new ApplicationException(string.Format("Exist the same vote for: Employee: {0}, Year: {1}, Month: {2}, Nomination:{3}", votingUser.Name, vote.Date.ToString("yyyy"), vote.Date.ToString("MM"), vote.NominationDescription));
                 }
             }
         }

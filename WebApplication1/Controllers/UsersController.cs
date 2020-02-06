@@ -112,6 +112,7 @@ namespace WebApplication1.Controllers
             return user;
         }
 
+        #region MockUsers
         private async Task MockUsers()
         {
             _context.UserDbSet.Add(new User()
@@ -156,7 +157,8 @@ namespace WebApplication1.Controllers
             });
 
             await _context.SaveChangesAsync();
-        }
+        } 
+        #endregion
 
         private bool UserExists(Guid id)
         {
