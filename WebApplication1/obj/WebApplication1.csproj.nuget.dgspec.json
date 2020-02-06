@@ -4,14 +4,14 @@
     "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj",
-        "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj",
+        "projectName": "VotesRestApi.Core",
+        "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj",
         "packagesPath": "C:\\Users\\Manucho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\obj\\",
+        "outputPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Manucho\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -37,6 +37,62 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj",
+        "projectName": "VotesRestApi.Service",
+        "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj",
+        "packagesPath": "C:\\Users\\Manucho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Manucho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj": {
+                "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
@@ -45,8 +101,70 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj",
+        "projectName": "WebApplication1",
+        "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\Manucho\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Manucho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {
+              "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj": {
+                "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[3.1.1, )"
             },
-            "Microsoft.EntityFrameworkCore.Sqlite": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.1, )"
             },

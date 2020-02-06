@@ -1,14 +1,12 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using WebApplication1.Models;
-using WebApplication1.Models.Context;
-using System.Security.Cryptography;
-using System.Text;
+using VotesRestApi.Core.Models;
+using VotesRestApi.Service.Context;
+using VotesRestApi.Service.Helper;
 
 namespace WebApplication1.Controllers
 {
@@ -27,10 +25,17 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUserDbSet()
         {
+            var result = await _context.UserDbSet.ToListAsync();
+
+            if (!result.Any())
+            {
+                await MockUsers();
+            }
+
             return await _context.UserDbSet.ToListAsync();
         }
 
-        // GET: api/users/5
+        // GET: api/users/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(Guid id)
         {
@@ -44,7 +49,7 @@ namespace WebApplication1.Controllers
             return user;
         }
 
-        // PUT: api/users/5
+        // PUT: api/users/{id}
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
@@ -83,9 +88,7 @@ namespace WebApplication1.Controllers
         public async Task<ActionResult<User>> PostUser(User user)
         {
             user.Id = Guid.NewGuid();
-            
-            byte[] bytes = SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(user.Pass));
-            user.Pass = Encoding.UTF8.GetString(bytes, 0, bytes.Length);
+            user.Pass = CryptographyHelper.Encrypt(user.Pass);
 
             _context.UserDbSet.Add(user);
             await _context.SaveChangesAsync();
@@ -107,6 +110,52 @@ namespace WebApplication1.Controllers
             await _context.SaveChangesAsync();
 
             return user;
+        }
+
+        private async Task MockUsers()
+        {
+            _context.UserDbSet.Add(new User()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Admin",
+                Mail = "admin@admin.com",
+                Pass = CryptographyHelper.Encrypt("Admin"),
+                UserRoleValue = 0
+            });
+            _context.UserDbSet.Add(new User()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Manu Ginobili",
+                Mail = "manu@ginobili.com",
+                Pass = CryptographyHelper.Encrypt("Manu20."),
+                UserRoleValue = 1
+            });
+            _context.UserDbSet.Add(new User()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Chapu Nocioni",
+                Mail = "chapu@nocioni.com",
+                Pass = CryptographyHelper.Encrypt("Chapu13."),
+                UserRoleValue = 1
+            });
+            _context.UserDbSet.Add(new User()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Luis Scola",
+                Mail = "luifa@scola.com",
+                Pass = CryptographyHelper.Encrypt("Luifa4."),
+                UserRoleValue = 1
+            });
+            _context.UserDbSet.Add(new User()
+            {
+                Id = Guid.NewGuid(),
+                Name = "Facu Campazzo",
+                Mail = "facu@campazzo.com",
+                Pass = CryptographyHelper.Encrypt("Facu7."),
+                UserRoleValue = 1
+            });
+
+            await _context.SaveChangesAsync();
         }
 
         private bool UserExists(Guid id)

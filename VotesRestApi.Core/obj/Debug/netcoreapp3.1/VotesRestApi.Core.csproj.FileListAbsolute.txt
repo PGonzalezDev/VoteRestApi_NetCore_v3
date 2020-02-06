@@ -1,0 +1,8 @@
+C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Core\bin\Debug\netcoreapp3.1\VotesRestApi.Core.deps.json
+C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Core\bin\Debug\netcoreapp3.1\VotesRestApi.Core.dll
+C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Core\bin\Debug\netcoreapp3.1\VotesRestApi.Core.pdb
+C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Core\obj\Debug\netcoreapp3.1\VotesRestApi.Core.AssemblyInfoInputs.cache
+C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Core\obj\Debug\netcoreapp3.1\VotesRestApi.Core.AssemblyInfo.cs
+C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Core\obj\Debug\netcoreapp3.1\VotesRestApi.Core.dll
+C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Core\obj\Debug\netcoreapp3.1\VotesRestApi.Core.pdb
+C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Core\obj\Debug\netcoreapp3.1\VotesRestApi.Core.csprojAssemblyReference.cache
