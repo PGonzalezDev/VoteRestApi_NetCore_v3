@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj": {
+    "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Core\\VotesRestApi.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Core\\VotesRestApi.Core.csproj",
         "projectName": "VotesRestApi.Core",
-        "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj",
-        "packagesPath": "C:\\Users\\Manucho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Core\\VotesRestApi.Core.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Manucho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -52,21 +54,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj": {
+    "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Service\\VotesRestApi.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Service\\VotesRestApi.Service.csproj",
         "projectName": "VotesRestApi.Service",
-        "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj",
-        "packagesPath": "C:\\Users\\Manucho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Service\\VotesRestApi.Service.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Service\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Manucho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -78,9 +80,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj": {
-                "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Core\\VotesRestApi.Core.csproj"
+              "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Core\\VotesRestApi.Core.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Core\\VotesRestApi.Core.csproj"
               }
             }
           }
@@ -93,6 +96,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
@@ -118,21 +122,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\Manucho\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\WebApplication1\\obj\\",
+        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Manucho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -144,9 +148,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj": {
-                "projectPath": "C:\\Users\\Manucho\\Desktop\\CloneGitVote\\VotesRestApi.Service\\VotesRestApi.Service.csproj"
+              "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Service\\VotesRestApi.Service.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Service\\VotesRestApi.Service.csproj"
               }
             }
           }
@@ -159,6 +164,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.InMemory": {
               "target": "Package",
@@ -201,7 +207,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

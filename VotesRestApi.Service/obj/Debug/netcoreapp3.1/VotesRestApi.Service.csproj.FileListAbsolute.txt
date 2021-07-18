@@ -9,3 +9,15 @@ C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Service\obj\Debug\netcoreapp3
 C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.csproj.CopyComplete
 C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.dll
 C:\Users\Manucho\Desktop\CloneGitVote\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.pdb
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\bin\Debug\netcoreapp3.1\VotesRestApi.Service.deps.json
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\bin\Debug\netcoreapp3.1\VotesRestApi.Service.dll
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\bin\Debug\netcoreapp3.1\VotesRestApi.Service.pdb
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\bin\Debug\netcoreapp3.1\VotesRestApi.Core.dll
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\bin\Debug\netcoreapp3.1\VotesRestApi.Core.pdb
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.csproj.AssemblyReference.cache
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.AssemblyInfoInputs.cache
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.AssemblyInfo.cs
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.csproj.CopyComplete
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.dll
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.pdb

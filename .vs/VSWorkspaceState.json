@@ -1,10 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\WebApplication1",
-    "\\WebApplication1\\Controllers",
-    "\\WebApplication1\\obj"
+    ""
   ],
-  "SelectedNode": "\\WebApplication1\\Controllers\\UsersController.cs",
+  "SelectedNode": "\\VotesRestApi.sln",
   "PreviewInSolutionExplorer": false
 }
