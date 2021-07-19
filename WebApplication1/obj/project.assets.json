@@ -2723,7 +2723,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "VotesRestApi.Core": "1.0.0"
+          "VotesRestApi.Core": "1.0.0",
+          "VotesRestApi.Repositories": "1.0.0"
         },
         "compile": {
           "bin/placeholder/VotesRestApi.Service.dll": {}

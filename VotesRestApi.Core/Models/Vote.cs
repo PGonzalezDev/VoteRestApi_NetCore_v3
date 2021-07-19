@@ -4,10 +4,8 @@ using VotesRestApi.Core.Enums;
 
 namespace VotesRestApi.Core.Models
 {
-    public class Vote
+    public class Vote : EntityBase
     {
-        public Guid Id { get; set; }
-
         [Required]
         public DateTime Date { get; set; }
 

@@ -3,9 +3,8 @@ using VotesRestApi.Core.Enums;
 
 namespace VotesRestApi.Core.Models
 {
-    public class User
+    public class User : EntityBase
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public string Mail { get; set; }
         public string Pass { get; set; }

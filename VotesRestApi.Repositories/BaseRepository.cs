@@ -1,4 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using VotesRestApi.Core.Models;
 using VotesRestApi.Repositories.Configure;
 
 namespace VotesRestApi.Repositories
@@ -15,8 +19,29 @@ namespace VotesRestApi.Repositories
         public async Task AddAsync<T>(T entity) where T : class
         {
             await _dbContext.Set<T>().AddAsync(entity);
+            await _dbContext.SaveChangesAsync();
         }
 
-        //public void
+        public async Task UpdateAsync<T>(T entity) where T : class
+        {
+            _dbContext.Set<T>().Update(entity);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task RemoveAsync<T>(T entity) where T : class
+        {
+            _dbContext.Set<T>().Remove(entity);
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task<T> GetByIdAsync<T>(Guid id) where T : EntityBase
+        {
+            return await _dbContext.Set<T>().SingleOrDefaultAsync(x => x.Id == id);
+        }
+
+        public IEnumerable<T> GetAll<T>() where T : class
+        {
+            return _dbContext.Set<T>().AsQueryable();
+        }
     }
 }

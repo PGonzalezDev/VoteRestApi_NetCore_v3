@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using VotesRestApi.Core.Helper;
 using VotesRestApi.Core.Models;
 using VotesRestApi.Repositories.Configure;
+using VotesRestApi.Service.DTOs;
+using VotesRestApi.Service.Interfaces;
 
 namespace WebApplication1.Controllers
 {
@@ -15,19 +17,21 @@ namespace WebApplication1.Controllers
     public class UsersController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
+        private readonly IUserService _service;
 
-        public UsersController(ApplicationDBContext context)
+        public UsersController(ApplicationDBContext context, IUserService service)
         {
             _context = context;
+            _service = service;
         }
 
         // GET: api/users
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUserDbSet()
+        public ActionResult<IEnumerable<GetUserDto>> GetAllUsers()
         {
-            var result = await _context.UserDbSet.ToListAsync();
+            var users = _service.GetAll();
 
-            return result;
+            return CreatedAtAction("GetAllUsers", users);
         }
 
         // GET: api/users/{id}
@@ -84,7 +88,7 @@ namespace WebApplication1.Controllers
             _context.UserDbSet.Add(user);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = user.Id }, user);
+            return CreatedAtAction("PostUser", new { id = user.Id }, user);
         }
 
         // DELETE: api/users/{id}

@@ -6,7 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using System;
+using VotesRestApi.Repositories;
 using VotesRestApi.Repositories.Configure;
+using VotesRestApi.Repositories.Interfaces;
+using VotesRestApi.Service;
+using VotesRestApi.Service.Interfaces;
 
 namespace WebApplication1
 {
@@ -27,6 +31,10 @@ namespace WebApplication1
             );
 
             services.AddControllers();
+
+            AddRepositories(services);
+
+            AddServices(services);
 
             AddSwagger(services);
         }
@@ -78,6 +86,16 @@ namespace WebApplication1
                     }
                 });
             });
+        }
+
+        private void AddRepositories(IServiceCollection services)
+        {
+            services.AddScoped<IUserRepository, UserRepository>();
+        }
+
+        private void AddServices(IServiceCollection services)
+        {
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

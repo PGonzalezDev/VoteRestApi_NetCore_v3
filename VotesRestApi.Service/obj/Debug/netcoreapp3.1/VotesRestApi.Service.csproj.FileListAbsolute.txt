@@ -21,3 +21,5 @@ C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcore
 C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.csproj.CopyComplete
 C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.dll
 C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\obj\Debug\netcoreapp3.1\VotesRestApi.Service.pdb
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\bin\Debug\netcoreapp3.1\VotesRestApi.Repositories.dll
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Service\bin\Debug\netcoreapp3.1\VotesRestApi.Repositories.pdb

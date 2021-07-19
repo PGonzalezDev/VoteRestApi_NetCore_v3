@@ -152,6 +152,9 @@
             "projectReferences": {
               "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Core\\VotesRestApi.Core.csproj": {
                 "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Core\\VotesRestApi.Core.csproj"
+              },
+              "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Repositories\\VotesRestApi.Repositories.csproj": {
+                "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\VotesRestApi.Repositories\\VotesRestApi.Repositories.csproj"
               }
             }
           }

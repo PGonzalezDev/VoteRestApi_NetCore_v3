@@ -2301,7 +2301,8 @@
       },
       "VotesRestApi.Service/1.0.0": {
         "dependencies": {
-          "VotesRestApi.Core": "1.0.0"
+          "VotesRestApi.Core": "1.0.0",
+          "VotesRestApi.Repositories": "1.0.0"
         },
         "runtime": {
           "VotesRestApi.Service.dll": {}
