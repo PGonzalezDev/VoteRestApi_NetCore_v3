@@ -12,10 +12,11 @@ nupkg/
 .idea
 
 # User-specific files
-*.suo
+.suo
 *.user
 *.userosscache
 *.sln.docstates
+*.sqlite
 
 # Build results
 [Dd]ebug/
