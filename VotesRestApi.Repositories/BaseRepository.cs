@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using VotesRestApi.Core.Models;
 using VotesRestApi.Repositories.Configure;
@@ -16,10 +17,12 @@ namespace VotesRestApi.Repositories
             _dbContext = dbContext;
         }
 
-        public async Task AddAsync<T>(T entity) where T : class
+        public async Task<T> AddAsync<T>(T entity) where T : class
         {
-            await _dbContext.Set<T>().AddAsync(entity);
+            var entityEntry = await _dbContext.Set<T>().AddAsync(entity);
             await _dbContext.SaveChangesAsync();
+
+            return entityEntry.Entity;
         }
 
         public async Task UpdateAsync<T>(T entity) where T : class
@@ -42,6 +45,11 @@ namespace VotesRestApi.Repositories
         public IEnumerable<T> GetAll<T>() where T : class
         {
             return _dbContext.Set<T>().AsQueryable();
+        }
+
+        public async Task<bool> AnyAsync<T>(Expression<Func<T, bool>> expression) where T : class
+        {
+            return await _dbContext.Set<T>().AnyAsync(expression);
         }
     }
 }

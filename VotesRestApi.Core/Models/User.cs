@@ -1,5 +1,4 @@
-﻿using System;
-using VotesRestApi.Core.Enums;
+﻿using VotesRestApi.Core.Enums;
 
 namespace VotesRestApi.Core.Models
 {

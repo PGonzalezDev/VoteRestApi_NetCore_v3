@@ -4,11 +4,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using VotesRestApi.Core.Helper;
 using VotesRestApi.Core.Models;
 using VotesRestApi.Repositories.Configure;
 using VotesRestApi.Service.DTOs;
 using VotesRestApi.Service.Interfaces;
+using WebApplication;
 
 namespace WebApplication1.Controllers
 {
@@ -16,12 +16,10 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly ApplicationDBContext _context;
         private readonly IUserService _service;
 
-        public UsersController(ApplicationDBContext context, IUserService service)
+        public UsersController(IUserService service)
         {
-            _context = context;
             _service = service;
         }
 
@@ -36,80 +34,53 @@ namespace WebApplication1.Controllers
 
         // GET: api/users/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(Guid id)
+        public async Task<ActionResult<GetUserByIdResponse>> GetUserById(Guid id)
         {
-            var user = await _context.UserDbSet.FindAsync(id);
+            var userDto = await _service.GetByIdAsync(id);
 
-            if (user == null)
+            if (userDto == null)
             {
                 return NotFound();
             }
 
-            return user;
+            return CreatedAtAction("GetUserById", new GetUserByIdResponse(userDto));
+        }
+
+        // POST: api/users
+        [HttpPost]
+        public async Task<ActionResult<Guid>> PostUser(CreateUserRequest request)
+        {
+            Guid id = await _service.AddAsync(request.ToDto());
+
+            return CreatedAtAction("PostUser", id);
         }
 
         // PUT: api/users/{id}
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(Guid id, User user)
+        public async Task<IActionResult> PutUser([FromRoute] Guid id, [FromBody] UpdateUserRequest request)
         {
-            if (id != user.Id)
-            {
-                return BadRequest();
-            }
+            bool isValid = await _service.UpdateAsync(request.ToDto(id));
 
-            _context.Entry(user).State = EntityState.Modified;
-
-            try
+            if (!isValid)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UserExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                return UnprocessableEntity();
             }
 
             return NoContent();
         }
 
-        // POST: api/users]
-        [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
-        {
-            user.Id = Guid.NewGuid();
-            user.Pass = CryptographyHelper.Encrypt(user.Pass);
-
-            _context.UserDbSet.Add(user);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("PostUser", new { id = user.Id }, user);
-        }
-
         // DELETE: api/users/{id}
         [HttpDelete("{id}")]
-        public async Task<ActionResult<User>> DeleteUser(Guid id)
+        public async Task<IActionResult> DeleteUser(Guid id)
         {
-            var user = await _context.UserDbSet.FindAsync(id);
-            if (user == null)
+            bool exist = await _service.RemoveAsync(id);
+            
+            if (!exist)
             {
                 return NotFound();
             }
 
-            _context.UserDbSet.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return user;
-        }
-
-        private bool UserExists(Guid id)
-        {
-            return _context.UserDbSet.Any(e => e.Id == id);
+            return NoContent();
         }
     }
 }

@@ -1,6 +1,4 @@
-﻿using VotesRestApi.Core.Models;
-
-namespace VotesRestApi.Service.DTOs
+﻿namespace VotesRestApi.Service.DTOs
 {
     public class GetUserDto : BaseDto
     {
@@ -9,11 +7,14 @@ namespace VotesRestApi.Service.DTOs
         
         public GetUserDto() { }
 
-        public GetUserDto(User user)
+        public GetUserDto(Core.Models.User user)
         {
-            this.Id = user.Id;
-            this.Name = user.Name;
-            this.Mail = user.Mail;
+            if (user != null)
+            {
+                this.Id = user.Id;
+                this.Name = user.Name;
+                this.Mail = user.Mail;
+            }
         }
     }
 }

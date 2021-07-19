@@ -6,6 +6,6 @@
         TechnicalReferent,
         KeyPlayer,
         Motivator,
-        Funny,
+        Funniest,
     }
 }

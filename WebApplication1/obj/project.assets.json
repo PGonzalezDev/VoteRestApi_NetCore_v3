@@ -8875,9 +8875,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\WebApplication1.csproj",
-      "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\WebApplication.csproj",
+      "projectName": "WebApplication",
+      "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\WebApplication.csproj",
       "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\Usuario\\Source\\Repos\\VoteRestApi\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",

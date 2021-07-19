@@ -113,7 +113,7 @@ namespace VotesRestApi.Repositories.Configure
                 {
                     Id = Guid.NewGuid(),
                     Date = DateTime.Now,
-                    Nomination = Nomination.Funny,
+                    Nomination = Nomination.Funniest,
                     VotingUserId = campazzo.Id,
                     VotingUserName = campazzo.Name,
                     VotedUserId = nocioni.Id,
@@ -126,7 +126,7 @@ namespace VotesRestApi.Repositories.Configure
                 {
                     Id = Guid.NewGuid(),
                     Date = DateTime.Now,
-                    Nomination = Nomination.Funny,
+                    Nomination = Nomination.Funniest,
                     VotingUserId = nocioni.Id,
                     VotingUserName = nocioni.Name,
                     VotedUserId = campazzo.Id,
@@ -161,7 +161,7 @@ namespace VotesRestApi.Repositories.Configure
                 {
                     Id = Guid.NewGuid(),
                     Date = DateTime.Now,
-                    Nomination = Nomination.Funny,
+                    Nomination = Nomination.Funniest,
                     VotingUserId = ginobili.Id,
                     VotingUserName = ginobili.Name,
                     VotedUserId = nocioni.Id,

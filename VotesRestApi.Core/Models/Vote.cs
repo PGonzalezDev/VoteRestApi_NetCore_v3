@@ -44,7 +44,7 @@ namespace VotesRestApi.Core.Models
                     case Nomination.Motivator:
                         description = "Motivator";
                         break;
-                    case Nomination.Funny:
+                    case Nomination.Funniest:
                         description = "Funny";
                         break;
                 }
