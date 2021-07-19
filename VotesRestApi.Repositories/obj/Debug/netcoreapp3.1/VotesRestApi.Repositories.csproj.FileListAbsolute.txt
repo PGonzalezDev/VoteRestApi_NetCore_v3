@@ -1,0 +1,12 @@
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\bin\Debug\netcoreapp3.1\VotesRestApi.Repositories.deps.json
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\bin\Debug\netcoreapp3.1\VotesRestApi.Repositories.dll
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\bin\Debug\netcoreapp3.1\VotesRestApi.Repositories.pdb
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\bin\Debug\netcoreapp3.1\VotesRestApi.Core.dll
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\bin\Debug\netcoreapp3.1\VotesRestApi.Core.pdb
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\obj\Debug\netcoreapp3.1\VotesRestApi.Repositories.csproj.AssemblyReference.cache
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\obj\Debug\netcoreapp3.1\VotesRestApi.Repositories.AssemblyInfoInputs.cache
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\obj\Debug\netcoreapp3.1\VotesRestApi.Repositories.AssemblyInfo.cs
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\obj\Debug\netcoreapp3.1\VotesRestApi.Repositories.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\obj\Debug\netcoreapp3.1\VotesRestApi.Repositories.csproj.CopyComplete
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\obj\Debug\netcoreapp3.1\VotesRestApi.Repositories.dll
+C:\Users\Usuario\Source\Repos\VoteRestApi\VotesRestApi.Repositories\obj\Debug\netcoreapp3.1\VotesRestApi.Repositories.pdb

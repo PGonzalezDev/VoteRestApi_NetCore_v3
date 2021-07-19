@@ -4,7 +4,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using VotesRestApi.Service.Context;
+using Microsoft.OpenApi.Models;
+using System;
+using VotesRestApi.Repositories.Configure;
 
 namespace WebApplication1
 {
@@ -20,13 +22,13 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<UserContext>(opt =>
-               opt.UseInMemoryDatabase("UserList"));
-
-            services.AddDbContext<VoteContext>(opt =>
-               opt.UseInMemoryDatabase("VoteList"));
+            services.AddDbContext<ApplicationDBContext>(opt =>
+                opt.UseInMemoryDatabase("VoteDb")
+            );
 
             services.AddControllers();
+
+            AddSwagger(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +48,35 @@ namespace WebApplication1
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vote API V1");
+            });
+
+        }
+
+        private void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(options =>
+            {
+                var groupName = "v1";
+
+                options.SwaggerDoc(groupName, new OpenApiInfo
+                {
+                    Title = $"{groupName}",
+                    Version = groupName,
+                    Description = "Vote Rest API",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Voting Company",
+                        Email = string.Empty,
+                        Url = new Uri("https://github.com/PGonzalezDev/VoteRestApi"),
+                    }
+                });
             });
         }
     }
