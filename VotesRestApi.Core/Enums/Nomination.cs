@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace VotesRestApi.Core.Enums
+﻿namespace VotesRestApi.Core.Enums
 {
     public enum Nomination
     {
@@ -10,6 +6,6 @@ namespace VotesRestApi.Core.Enums
         TechnicalReferent,
         KeyPlayer,
         Motivator,
-        Funny,
+        Funniest,
     }
 }

@@ -3,6 +3,6 @@
     public enum UserRol
     {
         Admin = 0,
-        Employee,
+        Player,
     }
 }
