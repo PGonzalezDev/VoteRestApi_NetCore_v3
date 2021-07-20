@@ -32,7 +32,7 @@ namespace VotesRestApi.Service
 
             if (admin == null || !admin.IsAdmin)
             {
-                throw new Exception("You don't have admin permissions.");
+                throw new ApplicationException("You don't have admin permissions.");
             }
 
             var users = _userRepository.GetAll();
@@ -41,6 +41,11 @@ namespace VotesRestApi.Service
             votes = votes.Where(x => x.Date.Year == period.Year
                                         && x.Date.Month == period.Month)
                         .ToList();
+
+            if (!votes.Any())
+            {
+                throw new ApplicationException(string.Format("There are no votes for the period {0}", period.ToString("yyyy/MM")));
+            }
 
             var mostVotedEmployee = votes.GroupBy(x => x.VotedUser.Id)
                                          .Select(mv => new 
@@ -53,10 +58,9 @@ namespace VotesRestApi.Service
                                          .OrderByDescending(x => x.Count)
                                          .FirstOrDefault();
 
-            ReportDto report = new ReportDto()
+            ReportDto report = new ReportDto(mostVotedEmployee.Period)
             {
                 MostVotedPlayer = new MostVotedPlayerDto(mostVotedEmployee.Name, mostVotedEmployee.Count),
-                Period = mostVotedEmployee.Period,
                 RegisteredEmployeeCount = users.Count(x => !x.IsAdmin)
             };
         
