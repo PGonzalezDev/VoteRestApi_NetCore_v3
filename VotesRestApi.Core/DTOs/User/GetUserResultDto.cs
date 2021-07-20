@@ -1,4 +1,4 @@
-﻿namespace VotesRestApi.Service.DTOs
+﻿namespace VotesRestApi.Core.DTOs
 {
     public class GetUserResultDto : BaseDto
     {

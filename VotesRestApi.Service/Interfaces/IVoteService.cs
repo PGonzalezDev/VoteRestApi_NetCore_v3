@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using VotesRestApi.Service.DTOs;
+using VotesRestApi.Core.DTOs;
 
 namespace VotesRestApi.Service.Interfaces
 {
     public interface IVoteService
     {
         IEnumerable<GetVoteResultDto> GetAll();
-        Task<GetVoteResultDto> GetByIdAsync(Guid id);
+        GetVoteResultDto GetByIdAsync(Guid id);
+        Task<Guid?> AddAsync(CreateVoteDto dto);
     }
 }

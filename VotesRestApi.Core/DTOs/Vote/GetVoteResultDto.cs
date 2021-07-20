@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace VotesRestApi.Service.DTOs
+﻿namespace VotesRestApi.Core.DTOs
 {
     public class GetVoteResultDto : BaseDto
     {
@@ -12,15 +10,15 @@ namespace VotesRestApi.Service.DTOs
 
         public GetVoteResultDto() { }
 
-        public GetVoteResultDto(Core.Models.Vote vote)
+        public GetVoteResultDto(VoteDto vote)
         {
             if (vote != null)
             {
                 Id = vote.Id;
                 Date = vote.Date.ToString("yyyy/MM/dd");
                 Comment = vote.Comment ?? string.Empty;
-                //VotingUserName = vote.VotingUserName;
-                //VotedUserName = vote.VotedUserName;
+                VotingUserName = vote.VotingUser.Name;
+                VotedUserName = vote.VotedUser.Name;
                 NominationDescription = vote.NominationDescription;
             }
         }

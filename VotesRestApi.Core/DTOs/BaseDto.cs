@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VotesRestApi.Service.DTOs
+namespace VotesRestApi.Core.DTOs
 {
     public class BaseDto
     {

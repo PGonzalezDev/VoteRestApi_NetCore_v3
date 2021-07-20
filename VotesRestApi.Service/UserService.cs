@@ -6,7 +6,7 @@ using VotesRestApi.Core.Enums;
 using VotesRestApi.Core.Helper;
 using VotesRestApi.Core.Models;
 using VotesRestApi.Repositories.Interfaces;
-using VotesRestApi.Service.DTOs;
+using VotesRestApi.Core.DTOs;
 using VotesRestApi.Service.Interfaces;
 
 namespace VotesRestApi.Service

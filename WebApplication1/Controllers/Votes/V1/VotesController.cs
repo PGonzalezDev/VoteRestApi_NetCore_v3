@@ -2,8 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using VotesRestApi.Service.DTOs;
+using VotesRestApi.Core.DTOs;
 using VotesRestApi.Service.Interfaces;
+using WebApplication.Requests;
 
 namespace WebApplication1.Controllers
 {
@@ -206,7 +207,7 @@ namespace WebApplication1.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<GetVoteResultDto>> GetVote(Guid id)
         {
-            var vote = await _service.GetByIdAsync(id);
+            var vote = _service.GetByIdAsync(id);
         
             if (vote == null)
             {
@@ -216,28 +217,18 @@ namespace WebApplication1.Controllers
             return Ok(vote);
         }
 
-        //// POST: api/votes
-        //[HttpPost]
-        //public async Task<ActionResult<Vote>> PostVote(Vote vote)
-        //{
-        //    vote.Id = Guid.NewGuid();
-        //    vote.Date = DateTime.Now;
-        //
-        //    await Validate(vote);
-        //
-        //    _context.VoteDbSet.Add(vote);
-        //    await _context.SaveChangesAsync();
-        //
-        //    return CreatedAtAction("GetVote", new { id = vote.Id }, vote);
-        //}
+        // POST: api/votes
+        [HttpPost]
+        public async Task<ActionResult<Guid>> PostVote(CreateVoteRequest request)
+        {
+            Guid? id = await _service.AddAsync(request.ToDto());
+
+            if(!id.HasValue)
+            {
+                return UnprocessableEntity();
+            }
         
-        //// POST: api/users
-        //[HttpPost]
-        //public async Task<ActionResult<Guid>> PostUser(CreateUserRequest request)
-        //{
-        //    Guid id = await _service.AddAsync(request.ToDto());
-        //
-        //    return CreatedAtAction("PostUser", id);
-        //}
+            return CreatedAtAction("PostVote", id.Value);
+        }
     }
 }

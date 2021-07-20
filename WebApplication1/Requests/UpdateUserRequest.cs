@@ -1,5 +1,5 @@
 ﻿using System;
-using VotesRestApi.Service.DTOs;
+using VotesRestApi.Core.DTOs;
 
 namespace WebApplication
 {

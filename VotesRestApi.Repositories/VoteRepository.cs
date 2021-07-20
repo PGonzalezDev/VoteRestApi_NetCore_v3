@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using VotesRestApi.Core.DTOs;
 using VotesRestApi.Core.Models;
 using VotesRestApi.Repositories.Configure;
 using VotesRestApi.Repositories.Interfaces;
@@ -35,37 +36,34 @@ namespace VotesRestApi.Repositories
             await base.RemoveAsync(vote);
         }
 
-        public async Task<Vote> GetByIdAsync(Guid id)
-        {
-            return await base.GetByIdAsync<Vote>(id);
-        }
-
-        public IEnumerable<Vote> GetAll()
-        {
-            return base.GetAll<Vote>();
-        }
-
         public async Task<bool> AnyAsync(Expression<Func<Vote, bool>> expression)
         {
             return await base.AnyAsync(expression);
         }
 
-        public async Task<IEnumerable<dynamic>> GetVotes(Guid? id)
+        public IEnumerable<VoteDto> GetAllVotes()
         {
             var query = from vote in _dbContext.VoteDbSet
                         join votingUser in _dbContext.UserDbSet on vote.VotingUserId equals votingUser.Id
                         join votedUser in _dbContext.UserDbSet on vote.VotedUserId equals votedUser.Id
-                        select new
+                        select new VoteDto()
                         {
-                            vote.Id,
-                            vote.Date,
-                            vote.Comment,
-                            //new { votingUser.Id, votingUser.Name } as VotingUser,
+                            Id = vote.Id,
+                            Date = vote.Date,
+                            Comment = vote.Comment,
+                            VotingUser = new UserVoteDto() { Id = votingUser.Id, Name = votingUser.Name },
+                            VotedUser = new UserVoteDto() { Id = votedUser.Id, Name = votedUser.Name },
+                            Nomination = vote.Nomination
                         };
 
-            return query;
+            return query;            
+        }
 
-            
+        public VoteDto GetVoteById(Guid id)
+        {
+            var query = GetAllVotes();
+
+            return query.SingleOrDefault(x => x.Id == id);
         }
     }
 }

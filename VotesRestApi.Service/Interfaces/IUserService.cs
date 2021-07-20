@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using VotesRestApi.Service.DTOs;
+using VotesRestApi.Core.DTOs;
 
 namespace VotesRestApi.Service.Interfaces
 {
