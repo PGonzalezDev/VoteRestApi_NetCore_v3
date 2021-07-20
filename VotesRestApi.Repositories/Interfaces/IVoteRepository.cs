@@ -12,8 +12,9 @@ namespace VotesRestApi.Repositories.Interfaces
         Task<Guid> AddAsync(Vote vote);
         Task UpdateAsync(Vote vote);
         Task RemoveAsync(Vote vote);
+        Task<Vote> GetByIdAsync(Guid id);
         Task<bool> AnyAsync(Expression<Func<Vote, bool>> expression);
-        IEnumerable<VoteDto> GetAllVotes();
-        VoteDto GetVoteById(Guid id);
+        IEnumerable<VoteDto> GetAllVotesDto();
+        VoteDto GetVoteDtoById(Guid id);
     }
 }

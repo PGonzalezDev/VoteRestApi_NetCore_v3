@@ -31,7 +31,7 @@ namespace VotesRestApi.Service
         {
             var user = await _userRepository.GetByIdAsync(id);
 
-            return new GetUserResultDto(user);
+            return (user != null) ? new GetUserResultDto(user) : null;
         }
 
         public async Task<Guid> AddAsync(CreateUserDto dto)

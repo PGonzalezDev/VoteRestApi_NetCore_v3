@@ -36,12 +36,17 @@ namespace VotesRestApi.Repositories
             await base.RemoveAsync(vote);
         }
 
+        public async Task<Vote> GetByIdAsync(Guid id)
+        {
+            return await base.GetByIdAsync<Vote>(id);
+        }
+
         public async Task<bool> AnyAsync(Expression<Func<Vote, bool>> expression)
         {
             return await base.AnyAsync(expression);
         }
 
-        public IEnumerable<VoteDto> GetAllVotes()
+        public IEnumerable<VoteDto> GetAllVotesDto()
         {
             var query = from vote in _dbContext.VoteDbSet
                         join votingUser in _dbContext.UserDbSet on vote.VotingUserId equals votingUser.Id
@@ -59,9 +64,9 @@ namespace VotesRestApi.Repositories
             return query;            
         }
 
-        public VoteDto GetVoteById(Guid id)
+        public VoteDto GetVoteDtoById(Guid id)
         {
-            var query = GetAllVotes();
+            var query = GetAllVotesDto();
 
             return query.SingleOrDefault(x => x.Id == id);
         }

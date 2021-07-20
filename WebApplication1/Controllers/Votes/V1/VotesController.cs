@@ -84,56 +84,7 @@ namespace WebApplication1.Controllers
         //
         //    return new ActionResult<Report>(report);
         //}
-        //
-        //// PUT: api/votes/{id}
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        //// more details see https://aka.ms/RazorPagesCRUD.
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutVote(Guid id, Vote vote)
-        //{
-        //    if (id != vote.Id)
-        //    {
-        //        return BadRequest();
-        //    }
-        //
-        //    _context.Entry(vote).State = EntityState.Modified;
-        //
-        //    try
-        //    {
-        //        await _context.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!VoteExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-        //
-        //    return NoContent();
-        //}
-        //
         
-        //
-        //// DELETE: api/votes/{id}
-        //[HttpDelete("{id}")]
-        //public async Task<ActionResult<Vote>> DeleteVote(Guid id)
-        //{
-        //    var vote = await _context.VoteDbSet.FindAsync(id);
-        //    if (vote == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //
-        //    _context.VoteDbSet.Remove(vote);
-        //    await _context.SaveChangesAsync();
-        //
-        //    return vote;
-        //}
         //
         //private async Task Validate(Vote vote)
         //{
@@ -229,6 +180,34 @@ namespace WebApplication1.Controllers
             }
         
             return CreatedAtAction("PostVote", id.Value);
+        }
+
+        // PUT: api/votes/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutUser([FromRoute] Guid id, [FromBody] UpdateVoteRequest request)
+        {
+            bool isValid = await _service.UpdateAsync(request.ToDto(id));
+
+            if (!isValid)
+            {
+                return UnprocessableEntity();
+            }
+
+            return NoContent();
+        }
+
+        // DELETE: api/votes/{id}
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteUser(Guid id)
+        {
+            bool exist = await _service.RemoveAsync(id);
+
+            if (!exist)
+            {
+                return NotFound();
+            }
+
+            return NoContent();
         }
     }
 }

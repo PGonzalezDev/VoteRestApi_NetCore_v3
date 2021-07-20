@@ -26,16 +26,17 @@ namespace VotesRestApi.Service
 
         public IEnumerable<GetVoteResultDto> GetAll()
         {
-            var votes = _voteRepository.GetAllVotes();
+            var votes = _voteRepository.GetAllVotesDto();
 
             return votes?.Select(x => new GetVoteResultDto(x));
         }
 
         public GetVoteResultDto GetByIdAsync(Guid id)
         {
-            var vote = _voteRepository.GetVoteById(id);
+            var vote = _voteRepository.GetVoteDtoById(id);
+            var result = vote != null ? new GetVoteResultDto(vote) : null;
 
-            return new GetVoteResultDto(vote);
+            return result;
         }
 
         public async Task<Guid?> AddAsync(CreateVoteDto dto)
@@ -61,6 +62,40 @@ namespace VotesRestApi.Service
             }
 
             return resultId;
+        }
+
+        public async Task<bool> UpdateAsync(UpdateVoteDto dto)
+        {
+            Vote vote = await _voteRepository.GetByIdAsync(dto.Id);
+            bool isValid = (vote != null);
+            
+            isValid &= !dto.VotedUserId.HasValue || await _userRepository.AnyAsync(x => x.Id == dto.VotedUserId.Value);
+
+            isValid &= !dto.Nomination.HasValue || Enum.IsDefined(typeof(Nomination), dto.Nomination);
+
+            if (isValid)
+            {
+                vote.Comment = !string.IsNullOrWhiteSpace(dto.Comment) ? dto.Comment : vote.Comment;
+                vote.VotedUserId = dto.VotedUserId ?? vote.VotedUserId;
+                vote.Nomination = dto.Nomination.HasValue ? (Nomination)dto.Nomination : vote.Nomination;
+
+                await _voteRepository.UpdateAsync(vote);
+            }
+
+            return isValid;
+        }
+
+        public async Task<bool> RemoveAsync(Guid id)
+        {
+            bool exist = await _voteRepository.AnyAsync(x => x.Id == id);
+
+            if (exist)
+            {
+                var vote = await _voteRepository.GetByIdAsync(id);
+                await _voteRepository.RemoveAsync(vote);
+            }
+
+            return exist;
         }
     }
 }
