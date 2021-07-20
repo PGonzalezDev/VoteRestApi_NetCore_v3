@@ -20,18 +20,18 @@ namespace VotesRestApi.Service
             _userRepository = userRepository;
         }
 
-        public IEnumerable<GetUserDto> GetAll()
+        public IEnumerable<GetUserResultDto> GetAll()
         {
             var users = _userRepository.GetAll();
             
-            return users?.Select(x => new GetUserDto(x));
+            return users?.Select(x => new GetUserResultDto(x));
         }
 
-        public async Task<GetUserDto> GetByIdAsync(Guid id)
+        public async Task<GetUserResultDto> GetByIdAsync(Guid id)
         {
             var user = await _userRepository.GetByIdAsync(id);
 
-            return new GetUserDto(user);
+            return new GetUserResultDto(user);
         }
 
         public async Task<Guid> AddAsync(CreateUserDto dto)

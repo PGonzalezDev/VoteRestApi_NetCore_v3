@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace VotesRestApi.Service.DTOs
+﻿namespace VotesRestApi.Service.DTOs
 {
     public class CreateUserDto
     {

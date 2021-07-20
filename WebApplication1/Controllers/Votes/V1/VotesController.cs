@@ -1,4 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using VotesRestApi.Service.DTOs;
+using VotesRestApi.Service.Interfaces;
 
 namespace WebApplication1.Controllers
 {
@@ -6,38 +11,6 @@ namespace WebApplication1.Controllers
     [ApiController]
     public class VotesController : ControllerBase
     {
-        //private readonly VoteContext _context;
-        //private readonly UserContext _userContext;
-        //
-        //public VotesController(VoteContext context, UserContext userContext)
-        //{
-        //    _context = context;
-        //    _userContext = userContext;
-        //}
-        //
-        //// GET: api/votes
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Vote>>> GetVoteDbSet()
-        //{
-        //    //await MockVotes();
-        //
-        //    return await _context.VoteDbSet.ToListAsync();
-        //}
-        //
-        //// GET: api/votes/{id}
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<Vote>> GetVote(Guid id)
-        //{
-        //    var vote = await _context.VoteDbSet.FindAsync(id);
-        //
-        //    if (vote == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //
-        //    return vote;
-        //}
-        //
         //// GET: api/votes/adminId/{adminId}/report/period/{yyyy-MM}
         //[HttpGet("adminId/{adminId}/report/period/{period}")]
         //public async Task<ActionResult<Report>> GetReport(Guid adminId, DateTime period)
@@ -143,22 +116,7 @@ namespace WebApplication1.Controllers
         //    return NoContent();
         //}
         //
-        //// POST: api/votes
-        //// To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        //// more details see https://aka.ms/RazorPagesCRUD.
-        //[HttpPost]
-        //public async Task<ActionResult<Vote>> PostVote(Vote vote)
-        //{
-        //    vote.Id = Guid.NewGuid();
-        //    vote.Date = DateTime.Now;
-        //
-        //    await Validate(vote);
-        //
-        //    _context.VoteDbSet.Add(vote);
-        //    await _context.SaveChangesAsync();
-        //
-        //    return CreatedAtAction("GetVote", new { id = vote.Id }, vote);
-        //}
+        
         //
         //// DELETE: api/votes/{id}
         //[HttpDelete("{id}")]
@@ -226,6 +184,60 @@ namespace WebApplication1.Controllers
         //private bool VoteExists(Guid id)
         //{
         //    return _context.VoteDbSet.Any(e => e.Id == id);
+        //}
+
+        private readonly IVoteService _service;
+
+        public VotesController(IVoteService service)
+        {
+            _service = service;
+        }
+
+        // GET: api/votes
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<GetVoteResultDto>>> GetAllVotes()
+        {
+            var votes = _service.GetAll();
+
+            return Ok(votes);
+        }
+
+        // GET: api/votes/{id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<GetVoteResultDto>> GetVote(Guid id)
+        {
+            var vote = await _service.GetByIdAsync(id);
+        
+            if (vote == null)
+            {
+                return NotFound();
+            }
+        
+            return Ok(vote);
+        }
+
+        //// POST: api/votes
+        //[HttpPost]
+        //public async Task<ActionResult<Vote>> PostVote(Vote vote)
+        //{
+        //    vote.Id = Guid.NewGuid();
+        //    vote.Date = DateTime.Now;
+        //
+        //    await Validate(vote);
+        //
+        //    _context.VoteDbSet.Add(vote);
+        //    await _context.SaveChangesAsync();
+        //
+        //    return CreatedAtAction("GetVote", new { id = vote.Id }, vote);
+        //}
+        
+        //// POST: api/users
+        //[HttpPost]
+        //public async Task<ActionResult<Guid>> PostUser(CreateUserRequest request)
+        //{
+        //    Guid id = await _service.AddAsync(request.ToDto());
+        //
+        //    return CreatedAtAction("PostUser", id);
         //}
     }
 }

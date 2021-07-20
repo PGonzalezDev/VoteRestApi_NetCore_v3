@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace VotesRestApi.Service.DTOs
+﻿namespace VotesRestApi.Service.DTOs
 {
     public class UpdateUserDto : BaseDto
     {

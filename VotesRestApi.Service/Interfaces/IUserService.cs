@@ -7,8 +7,8 @@ namespace VotesRestApi.Service.Interfaces
 {
     public interface IUserService
     {
-        IEnumerable<GetUserDto> GetAll();
-        Task<GetUserDto> GetByIdAsync(Guid id);
+        IEnumerable<GetUserResultDto> GetAll();
+        Task<GetUserResultDto> GetByIdAsync(Guid id);
         Task<Guid> AddAsync(CreateUserDto dto);
         Task<bool> UpdateAsync(UpdateUserDto dto);
         Task<bool> RemoveAsync(Guid id);

@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using VotesRestApi.Core.Models;
-using VotesRestApi.Repositories.Configure;
 using VotesRestApi.Service.DTOs;
 using VotesRestApi.Service.Interfaces;
 using WebApplication;
@@ -25,16 +22,16 @@ namespace WebApplication1.Controllers
 
         // GET: api/users
         [HttpGet]
-        public ActionResult<IEnumerable<GetUserDto>> GetAllUsers()
+        public ActionResult<IEnumerable<GetUserResponse>> GetAllUsers()
         {
             var users = _service.GetAll();
 
-            return CreatedAtAction("GetAllUsers", users);
+            return Ok(users?.Select(x => new GetUserResponse(x)));
         }
 
         // GET: api/users/{id}
         [HttpGet("{id}")]
-        public async Task<ActionResult<GetUserByIdResponse>> GetUserById(Guid id)
+        public async Task<ActionResult<GetUserResponse>> GetUserById(Guid id)
         {
             var userDto = await _service.GetByIdAsync(id);
 
@@ -43,7 +40,7 @@ namespace WebApplication1.Controllers
                 return NotFound();
             }
 
-            return CreatedAtAction("GetUserById", new GetUserByIdResponse(userDto));
+            return Ok(new GetUserResponse(userDto));
         }
 
         // POST: api/users

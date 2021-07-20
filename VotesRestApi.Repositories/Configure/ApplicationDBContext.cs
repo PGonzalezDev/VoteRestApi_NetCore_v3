@@ -90,34 +90,34 @@ namespace VotesRestApi.Repositories.Configure
                 await VoteDbSet.AddAsync(new Vote()
                 {
                     Id = Guid.NewGuid(),
-                    Date = DateTime.Now,
+                    Date = DateTime.UtcNow,
                     Nomination = Nomination.KeyPlayer,
                     VotingUserId = campazzo.Id,
-                    VotingUserName = campazzo.Name,
+                    //VotingUserName = campazzo.Name,
                     VotedUserId = ginobili.Id,
-                    VotedUserName = ginobili.Name
+                    //VotedUserName = ginobili.Name
                 });
 
                 await VoteDbSet.AddAsync(new Vote()
                 {
                     Id = Guid.NewGuid(),
-                    Date = DateTime.Now,
+                    Date = DateTime.UtcNow,
                     Nomination = Nomination.TeamPlayer,
                     VotingUserId = campazzo.Id,
-                    VotingUserName = campazzo.Name,
+                    //VotingUserName = campazzo.Name,
                     VotedUserId = scola.Id,
-                    VotedUserName = scola.Name
+                    //VotedUserName = scola.Name
                 });
 
                 await VoteDbSet.AddAsync(new Vote()
                 {
                     Id = Guid.NewGuid(),
-                    Date = DateTime.Now,
+                    Date = DateTime.UtcNow,
                     Nomination = Nomination.Funniest,
                     VotingUserId = campazzo.Id,
-                    VotingUserName = campazzo.Name,
+                    //VotingUserName = campazzo.Name,
                     VotedUserId = nocioni.Id,
-                    VotedUserName = nocioni.Name
+                    //VotedUserName = nocioni.Name
                 });
                 #endregion
 
@@ -125,34 +125,34 @@ namespace VotesRestApi.Repositories.Configure
                 await VoteDbSet.AddAsync(new Vote()
                 {
                     Id = Guid.NewGuid(),
-                    Date = DateTime.Now,
+                    Date = DateTime.UtcNow,
                     Nomination = Nomination.Funniest,
                     VotingUserId = nocioni.Id,
-                    VotingUserName = nocioni.Name,
+                    //VotingUserName = nocioni.Name,
                     VotedUserId = campazzo.Id,
-                    VotedUserName = campazzo.Name
+                    //VotedUserName = campazzo.Name
                 });
 
                 await VoteDbSet.AddAsync(new Vote()
                 {
                     Id = Guid.NewGuid(),
-                    Date = DateTime.Now,
+                    Date = DateTime.UtcNow,
                     Nomination = Nomination.KeyPlayer,
                     VotingUserId = nocioni.Id,
-                    VotingUserName = nocioni.Name,
+                    //VotingUserName = nocioni.Name,
                     VotedUserId = ginobili.Id,
-                    VotedUserName = ginobili.Name
+                    //VotedUserName = ginobili.Name
                 });
 
                 await VoteDbSet.AddAsync(new Vote()
                 {
                     Id = Guid.NewGuid(),
-                    Date = DateTime.Now,
+                    Date = DateTime.UtcNow,
                     Nomination = Nomination.TeamPlayer,
                     VotingUserId = nocioni.Id,
-                    VotingUserName = nocioni.Name,
+                    //VotingUserName = nocioni.Name,
                     VotedUserId = scola.Id,
-                    VotedUserName = nocioni.Name
+                    //VotedUserName = nocioni.Name
                 });
                 #endregion
 
@@ -160,12 +160,12 @@ namespace VotesRestApi.Repositories.Configure
                 await VoteDbSet.AddAsync(new Vote()
                 {
                     Id = Guid.NewGuid(),
-                    Date = DateTime.Now,
+                    Date = DateTime.UtcNow,
                     Nomination = Nomination.Funniest,
                     VotingUserId = ginobili.Id,
-                    VotingUserName = ginobili.Name,
+                    //VotingUserName = ginobili.Name,
                     VotedUserId = nocioni.Id,
-                    VotedUserName = nocioni.Name
+                    //VotedUserName = nocioni.Name
                 });
                 #endregion
 

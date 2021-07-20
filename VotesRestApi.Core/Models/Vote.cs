@@ -14,12 +14,8 @@ namespace VotesRestApi.Core.Models
         [Required]
         public Guid VotingUserId { get; set; }
 
-        public string VotingUserName { get; set; }
-
         [Required]
         public Guid VotedUserId { get; set; }
-
-        public string VotedUserName { get; set; }
 
         [Required]
         public Nomination Nomination { get; set; }

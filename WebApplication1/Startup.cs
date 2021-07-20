@@ -62,7 +62,7 @@ namespace WebApplication1
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Vote API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "V1");
             });
 
         }
@@ -75,12 +75,12 @@ namespace WebApplication1
 
                 options.SwaggerDoc(groupName, new OpenApiInfo
                 {
-                    Title = $"{groupName}",
+                    Title = $"Vote Manager Prototype",
                     Version = groupName,
                     Description = "Vote Rest API",
                     Contact = new OpenApiContact
                     {
-                        Name = "Voting Company",
+                        Name = "Voting Fake Company",
                         Email = string.Empty,
                         Url = new Uri("https://github.com/PGonzalezDev/VoteRestApi"),
                     }
@@ -91,11 +91,13 @@ namespace WebApplication1
         private void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IVoteRepository, VoteRepository>();
         }
 
         private void AddServices(IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IVoteService, VoteService>();
         }
     }
 }

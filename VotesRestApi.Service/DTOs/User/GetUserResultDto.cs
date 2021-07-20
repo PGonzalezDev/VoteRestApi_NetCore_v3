@@ -1,13 +1,13 @@
 ﻿namespace VotesRestApi.Service.DTOs
 {
-    public class GetUserDto : BaseDto
+    public class GetUserResultDto : BaseDto
     {
         public string Name { get; set; }
         public string Mail { get; set; }
         
-        public GetUserDto() { }
+        public GetUserResultDto() { }
 
-        public GetUserDto(Core.Models.User user)
+        public GetUserResultDto(Core.Models.User user)
         {
             if (user != null)
             {
