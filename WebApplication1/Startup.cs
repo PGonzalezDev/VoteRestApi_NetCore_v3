@@ -98,6 +98,7 @@ namespace WebApplication1
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IVoteService, VoteService>();
+            services.AddScoped<IReportServices, ReportService>();
         }
     }
 }
