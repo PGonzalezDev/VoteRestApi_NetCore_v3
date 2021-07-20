@@ -6,17 +6,27 @@ namespace VotesRestApi.Core.DTOs
 {
     public class ReportDto
     {
-        public DateTime Period { get; set; }
+        private DateTime _period { get; set; }
+
+        public string Period => _period.ToString("yyyy-MM");
+
         public MostVotedPlayerDto MostVotedPlayer { get; set; }
         public string MostVotedEmployeeDescription => 
             string.Format(
                 "The most voted Player is {0} with {1} total votes for period {2}",
                 MostVotedPlayer.Name,
                 MostVotedPlayer.VotesAmount,
-                Period.ToString("yyyy-MM")
+                Period
             );
         public int RegisteredEmployeeCount { get; set; }
         public Dictionary<string, string> MostVotedEmployeeForNomination { get; set; }
+
+        public ReportDto() { }
+
+        public ReportDto(DateTime period)
+        {
+            _period = period;
+        }
     }
 
     public class MostVotedPlayerDto
